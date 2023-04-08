@@ -7,7 +7,7 @@ const AboutUs = () => {
                 <div className="textArea"> 
                     <h2>About Us</h2>
                     <p>
-                        Spark Corporation was founded in 1984 by <strong>Mr. Laxman Prabhu</strong>. With an objective to become a leading name in the field of electrical and instrumentation <strong>Shakti Sinha</strong> with 15 and more years of experience has joined as Proprietor Partner for Spark Corporation .
+                        Spark Corporation was founded in 1984 by <strong>Mr. Laxman Prabhu</strong>. With an objective to become a leading name in the field of electrical and instrumentation <strong> Mr. Shakti Sinha</strong> with 15 and more years of experience has joined as Proprietor Partner for Spark Corporation .
                     </p>
 
                     <p>
