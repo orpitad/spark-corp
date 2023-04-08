@@ -128,3 +128,11 @@ fieldset {
 :-ms-input-placeholder {
  color:#888;
 }
+
+#details	{
+	text-align: left;
+}
+
+.drop{
+	visibility: hidden;
+}
