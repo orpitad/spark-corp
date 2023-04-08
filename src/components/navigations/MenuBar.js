@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from "react-router-dom"
 import './MenuBar.css'
 
 const MenuBar = () => {
@@ -11,9 +11,9 @@ const MenuBar = () => {
                 <label className="menu-icon" htmlFor="menu-btn"><span className="navicon"></span></label>
 
                 <ul className="menu">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/AboutUs">About Us</a></li>
-                    <li><a href="/ContactUs">Contact Us</a></li>                
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="AboutUs">About Us</Link></li>
+                    <li><Link to="ContactUs">Contact Us</Link></li>          
                 </ul>
             </div>
         </nav>
