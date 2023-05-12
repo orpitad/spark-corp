@@ -7,21 +7,69 @@ import img1 from "../../images/img1.jpg";
 import ltPanel from "../../images/lt-panel.jpg";
 import plcPanel from "../../images/plc-control-panel.jpg";
 import flowMeter from "../../images/flowmeter.jpeg";
+import linkedIn from '../../images/linkedIn.png';
+
+import emailjs from 'emailjs-com'
+
 const Home = () => {
   const [selected, setSelected] = useState(4);
   const [checked, setChecked] = useState(false);
 
   const ref = useRef(null);
   const ref2 = useRef(null);
+  const ref3 = useRef(null);
+  const ref4 = useRef(null);
+
+  const form = useRef();
+  const [matches, setMatches] = useState(
+    window.matchMedia("(min-width: 768px)").matches
+  )
+
+  useEffect(() => {
+    window
+    .matchMedia("(min-width: 768px)")
+    .addEventListener('change', e => setMatches( e.matches ));
+  }, []);
+
+  useEffect(() => {
+    console.log(matches)
+  },[matches]);
 
   const handleClick = (type) => {
     if(type=== 'about') ref.current?.scrollIntoView({ behavior: "smooth" });
-    else if(type === 'contact') ref2.current?.scrollIntoView({ behavior: "smooth" });
+    else if(type === 'contact') {
+        if(matches) {
+            ref2.current.style.scrollMargin = '-400px'
+        } else {
+            ref2.current.style.scrollMargin = '-1250px'
+        }
+
+        ref2.current?.scrollIntoView({ behavior: "smooth" });
+    }
+    ref3.current.checked = false;
+    setChecked(false);
+    // handleChange();
+
   };
 
   const handleChange = () => {
     setChecked(!checked);
   };
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     emailjs.send('service_dqudscq', 'template_toyzrhh', values, 'H2vU8VS1C1Uj7ndBq');
+//   }
+  const sendEmail = (e) => {
+    e.preventDefault();
+    console.log(form.current.name.value, form.current.email.value, form.current.message.value)
+    emailjs.sendForm('service_dqudscq', 'template_4h6xoq9',
+    form.current,
+    "H2vU8VS1C1Uj7ndBq").then(
+    result => console.log(result.text),
+    error => console.log(error.text)
+    );
+  };
+
   useEffect(() => {
     const intervalID = setTimeout(() => {
       setSelected((current) => {
@@ -44,24 +92,24 @@ const Home = () => {
     <>
       <nav className="navbar">
         <div className="navbar-container container">
-          <input type="checkbox" name="" id="" onChange={handleChange} />
+          <input type="checkbox" name="" id="" onChange={handleChange} ref={ref3}/>
           <div className="hamburger-lines">
             <span className="line line1"></span>
             <span className="line line2"></span>
             <span className="line line3"></span>
           </div>
           <ul className="menu-items">
-            <li>
+            {/* <li>
               <div>Home</div>
-            </li>
+            </li> */}
             <li onClick={() => handleClick('about')}>
-              <div>About</div>
+              <div>About Us</div>
             </li>
-            <li>
+            <li onClick={() => handleClick('services')}>
               <div>Services</div>
             </li>
             <li>
-              <div onClick={() => handleClick('contact')}>Contact</div>
+              <div onClick={() => handleClick('contact')}>Contact Us</div>
             </li>
           </ul>
           <h1 className="logo">SPARK CORPORATION</h1>
@@ -137,7 +185,7 @@ const Home = () => {
           </section>
         </div>
       </div>
-      <div>
+      <div className="parent-snip">
         <figure className="snip1527">
           <div className="image">
             <img src={ltPanel} alt="pr-sample23" />
@@ -145,7 +193,7 @@ const Home = () => {
           <figcaption>
             {/* <div className="date"><span className="day">28</span><span className="month">Oct</span></div> */}
             <h3>
-              LT Panel <span>You know what we need, Hobbes</span>
+              LT Panel 
             </h3>
             <p>
               {/* You know what we need, Hobbes? We need an attitude. Yeah, you can't be cool if you don't have an attitude. */}
@@ -160,7 +208,7 @@ const Home = () => {
           <figcaption>
             {/* <div className="date"><span className="day">17</span><span className="month">Nov</span></div> */}
             <h3>
-              PLC Panel<span>You know what we need, Hobbes</span>
+              PLC Panel
             </h3>
             <p>
               {/* Sometimes the surest sign that intelligent life exists elsewhere in the universe is that none of it has tried to contact us. */}
@@ -168,7 +216,7 @@ const Home = () => {
           </figcaption>
           {/* <a href="#"></a> */}
         </figure>
-        <figure className="snip1527">
+        <figure className="snip1527 last">
           <div className="image">
             <img src={flowMeter} alt="pr-sample25" />
           </div>
@@ -183,22 +231,17 @@ const Home = () => {
         </figure>
       </div>
       <br />
-      <div className="eleven conatact" ref={ref2} >
+      <div className="eleven "  ref={ref4} >
+                  <h1>SERVICES</h1>
+                </div>
+      <div className="eleven conatact"  ref={ref2} >
                   <h1>CONTACT US</h1>
                 </div>
       <div className="contactForm">
         <div className="contact container">
-          <form>
+          <form   ref={form} onSubmit={sendEmail}>
             <div className="form">
               <div className="form-txt">
-                
-
-                {/* <h1>Contact Us</h1> */}
-                {/* <span>
-                  As you might expect of a company that began as a high-end
-                  interiors contractor, we pay strict attention.
-                </span> */}
-                {/* <h3>USA</h3> */}
                 <p>
                 <strong>Spark Corporation</strong><br />
                 H274 Tata Housing Amantra<br />
@@ -245,13 +288,29 @@ const Home = () => {
                   required
                 ></textarea>
 
-                <button className="button-86">SEND MESSAGE</button>
+                <button type="submit" className="button-86">SEND MESSAGE</button>
 
               </div>
             </div>
           </form>
         </div>
+        
       </div>
+      <footer >
+            <div className="footer">
+
+                {/* <ul className="social">
+                    <li>
+                        <a href="https://www.linkedin.com/in/shakti-sinha-9838a714"><i className="fa fa-linkedin"></i></a>
+                    </li>
+                </ul> */}
+                <a href="https://www.linkedin.com/in/shakti-sinha-9838a714">                    
+                    <img src={linkedIn} className="linkedIn" alt="LinkedIn" />
+                    {/* <span>Shakti Sinha</span> */}
+                </a>
+                <p>&copy;Spark Corporation. All rights reserved.</p>
+            </div>
+        </footer>
     </>
   );
 };
