@@ -7,9 +7,9 @@ import img1 from "../../images/img1.jpg";
 import ltPanel from "../../images/lt-panel.jpg";
 import plcPanel from "../../images/plc-control-panel.jpg";
 import flowMeter from "../../images/flowmeter.jpeg";
-import linkedIn from '../../images/linkedIn.png';
+import linkedIn from "../../images/linkedIn.png";
 
-import emailjs from 'emailjs-com'
+import emailjs from "emailjs-com";
 
 const Home = () => {
   const [selected, setSelected] = useState(4);
@@ -21,53 +21,46 @@ const Home = () => {
   const ref4 = useRef(null);
 
   const form = useRef();
-  const [matches, setMatches] = useState(
-    window.matchMedia("(min-width: 768px)").matches
-  )
-
-  useEffect(() => {
-    window
-    .matchMedia("(min-width: 768px)")
-    .addEventListener('change', e => setMatches( e.matches ));
-  }, []);
-
-  useEffect(() => {
-    console.log(matches)
-  },[matches]);
-
+  
   const handleClick = (type) => {
-    if(type=== 'about') ref.current?.scrollIntoView({ behavior: "smooth" });
-    else if(type === 'contact') {
-        if(matches) {
-            ref2.current.style.scrollMargin = '-400px'
-        } else {
-            ref2.current.style.scrollMargin = '-1250px'
-        }
-
-        ref2.current?.scrollIntoView({ behavior: "smooth" });
+    if (type === "about") ref.current?.scrollIntoView({ behavior: "smooth" });
+    else if (type === "contact") {
+        ref2.current.style.scrollMargin = "0px";
+      ref2.current?.scrollIntoView({ behavior: "smooth" });
+    } else if (type === "services") {
+      ref4.current?.scrollIntoView({ behavior: "smooth" });
     }
     ref3.current.checked = false;
     setChecked(false);
     // handleChange();
-
   };
 
   const handleChange = () => {
     setChecked(!checked);
   };
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     emailjs.send('service_dqudscq', 'template_toyzrhh', values, 'H2vU8VS1C1Uj7ndBq');
-//   }
+  //   const handleSubmit = (e) => {
+  //     e.preventDefault();
+  //     emailjs.send('service_dqudscq', 'template_toyzrhh', values, 'H2vU8VS1C1Uj7ndBq');
+  //   }
   const sendEmail = (e) => {
     e.preventDefault();
-    console.log(form.current.name.value, form.current.email.value, form.current.message.value)
-    emailjs.sendForm('service_dqudscq', 'template_4h6xoq9',
-    form.current,
-    "H2vU8VS1C1Uj7ndBq").then(
-    result => console.log(result.text),
-    error => console.log(error.text)
+    console.log(
+      form.current.name.value,
+      form.current.email.value,
+      form.current.message.value
     );
+    emailjs
+      .sendForm(
+        "service_dqudscq",
+        "template_4h6xoq9",
+        form.current,
+        "H2vU8VS1C1Uj7ndBq"
+      )
+      .then(
+        (result) => console.log(result.text),
+        (error) => console.log(error.text)
+      );
+    e.target.reset();
   };
 
   useEffect(() => {
@@ -92,7 +85,13 @@ const Home = () => {
     <>
       <nav className="navbar">
         <div className="navbar-container container">
-          <input type="checkbox" name="" id="" onChange={handleChange} ref={ref3}/>
+          <input
+            type="checkbox"
+            name=""
+            id=""
+            onChange={handleChange}
+            ref={ref3}
+          />
           <div className="hamburger-lines">
             <span className="line line1"></span>
             <span className="line line2"></span>
@@ -102,14 +101,14 @@ const Home = () => {
             {/* <li>
               <div>Home</div>
             </li> */}
-            <li onClick={() => handleClick('about')}>
+            <li onClick={() => handleClick("about")}>
               <div>About Us</div>
             </li>
-            <li onClick={() => handleClick('services')}>
+            <li onClick={() => handleClick("services")}>
               <div>Services</div>
             </li>
             <li>
-              <div onClick={() => handleClick('contact')}>Contact Us</div>
+              <div onClick={() => handleClick("contact")}>Contact Us</div>
             </li>
           </ul>
           <h1 className="logo">SPARK CORPORATION</h1>
@@ -192,9 +191,7 @@ const Home = () => {
           </div>
           <figcaption>
             {/* <div className="date"><span className="day">28</span><span className="month">Oct</span></div> */}
-            <h3>
-              LT Panel 
-            </h3>
+            <h3>LT Panel</h3>
             <p>
               {/* You know what we need, Hobbes? We need an attitude. Yeah, you can't be cool if you don't have an attitude. */}
             </p>
@@ -206,61 +203,188 @@ const Home = () => {
             <img src={plcPanel} alt="pr-sample24" />
           </div>
           <figcaption>
-            {/* <div className="date"><span className="day">17</span><span className="month">Nov</span></div> */}
-            <h3>
-              PLC Panel
-            </h3>
-            <p>
-              {/* Sometimes the surest sign that intelligent life exists elsewhere in the universe is that none of it has tried to contact us. */}
-            </p>
+            <h3>PLC Panel</h3>
           </figcaption>
-          {/* <a href="#"></a> */}
         </figure>
         <figure className="snip1527 last">
           <div className="image">
             <img src={flowMeter} alt="pr-sample25" />
           </div>
           <figcaption>
-            {/* <div className="date"><span className="day">01</span><span className="month">Dec</span></div> */}
             <h3>Sensor fixing for 4200mm size ultra flux FlowMeter</h3>
-            <p>
-              {/* I don't need to compromise my principles, because they don't have the slightest bearing on what happens to me anyway. */}
-            </p>
           </figcaption>
-          {/* <a href="#"></a> */}
         </figure>
       </div>
       <br />
-      <div className="eleven "  ref={ref4} >
-                  <h1>SERVICES</h1>
-                </div>
-      <div className="eleven conatact"  ref={ref2} >
-                  <h1>CONTACT US</h1>
-                </div>
+      <div className="services" ref={ref4}>
+        <div className="eleven ">
+          <h1>SERVICES</h1>
+        </div>
+        <div className="service-text">
+          <h1>Specialized In</h1>
+          <br />
+          <div className="specialized">
+          <div className="ag-courses_item">
+            <a href="/" className="ag-courses-item_link">
+              <div className="ag-courses-item_bg"></div>
+
+              <div className="ag-courses-item_title">
+              Supply Installation Testing &amp; Commissioning (SITC) of Ultrasonic
+                Flowmeters,Electromagnetic Flowmeters and pressure transmitters for clearwater.
+              </div>
+
+              {/* <div className="ag-courses-item_date-box">
+                Start:
+                <span className="ag-courses-item_date">04.11.2022</span>
+              </div> */}
+            </a>
+          </div>
+
+          <div className="ag-courses_item">
+            <a href="/" className="ag-courses-item_link">
+              <div className="ag-courses-item_bg"></div>
+
+              <div className="ag-courses-item_title">
+              All types of Low Voltage(LV) and Extra Low Voltage(ELV) Electrical worksSupply Installation Testing & Commissioning.
+
+              </div>
+
+              {/* <div className="ag-courses-item_date-box">
+                Start:
+                <span className="ag-courses-item_date">04.11.2022</span>
+              </div> */}
+            </a>
+          </div>
+
+          </div>
+
+          {/* <p>
+                Supply Installation Testing &amp; Commissioning (SITC) of Ultrasonic
+                Flowmeters,Electromagnetic Flowmeters and pressure transmitters for clearwater.
+            </p> */}
+
+<h1>Channel Partner for following products</h1>
+          <br />
+          <div className="ag-courses_item">
+            <a href="/" className="ag-courses-item_link">
+              <div className="ag-courses-item_bg"></div>
+
+              <div className="ag-courses-item_title">
+              Roof Top Solar
+              </div>
+            </a>
+          </div>
+
+          <div className="ag-courses_item">
+            <a href="/" className="ag-courses-item_link">
+              <div className="ag-courses-item_bg"></div>
+
+              <div className="ag-courses-item_title">
+              Anti Dust Coating for solar modules
+              </div>
+
+              {/* <div className="ag-courses-item_date-box">
+                Start:
+                <span className="ag-courses-item_date">04.11.2022</span>
+              </div> */}
+            </a>
+          </div>
+          <div className="ag-courses_item">
+            <a href="/" className="ag-courses-item_link">
+              <div className="ag-courses-item_bg"></div>
+
+              <div className="ag-courses-item_title">
+              Air conditioning energy saver
+              </div>
+            </a>
+          </div>
+
+          <div className="ag-courses_item">
+            <a href="/" className="ag-courses-item_link">
+              <div className="ag-courses-item_bg"></div>
+
+              <div className="ag-courses-item_title">
+              Energy efficient water heating systems.
+              </div>
+            </a>
+          </div>
+
+          <div className="ag-courses_item">
+            <a href="/" className="ag-courses-item_link">
+              <div className="ag-courses-item_bg"></div>
+
+              <div className="ag-courses-item_title">
+              Air Curtains
+              </div>
+            </a>
+          </div>
+
+          <div className="ag-courses_item">
+            <a href="/" className="ag-courses-item_link">
+              <div className="ag-courses-item_bg"></div>
+
+              <div className="ag-courses-item_title">
+              Pyrolytic Oil(Tyre Oil)
+              </div>
+            </a>
+          </div>
+            <h1>Additional Services</h1>
+          
+            <div className="ag-courses_item">
+            <a href="/" className="ag-courses-item_link">
+              <div className="ag-courses-item_bg"></div>
+
+              <div className="ag-courses-item_title">
+              DESIGN AND DEVELOP USER FRIENDLY WEBSITE
+              </div>
+            </a>
+          </div>
+
+          <div className="ag-courses_item">
+            <a href="/" className="ag-courses-item_link">
+              <div className="ag-courses-item_bg"></div>
+
+              <div className="ag-courses-item_title">
+              BUSINESS ANALYSIS
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div className="eleven conatact" ref={ref2}>
+        <h1>CONTACT US</h1>
+      </div>
       <div className="contactForm">
         <div className="contact container">
-          <form   ref={form} onSubmit={sendEmail}>
+          <form ref={form} onSubmit={sendEmail}>
             <div className="form">
               <div className="form-txt">
                 <p>
-                <strong>Spark Corporation</strong><br />
-                H274 Tata Housing Amantra<br />
-                Bhiwandi Bypass<br />
-                Thane 421302<br />
-                Maharashtra 
+                  <strong>Spark Corporation</strong>
+                  <br />
+                  H274 Tata Housing Amantra
+                  <br />
+                  Bhiwandi Bypass
+                  <br />
+                  Thane 421302
+                  <br />
+                  Maharashtra
                   <br />
                   +91-9167822792
                 </p>
-                <hr/>
+                <hr />
                 {/* <h3>India</h3> */}
                 <p>
-                <strong>Spark Corporation</strong><br />
-                2/10, Unnat Nagar III, <br />
-                M.G. Road, Goregaon (W) <br />
-                Mumbai 400062<br />
-                Maharashtra                  <br />
+                  <strong>Spark Corporation</strong>
+                  <br />
+                  2/10, Unnat Nagar III, <br />
+                  M.G. Road, Goregaon (W) <br />
+                  Mumbai 400062
+                  <br />
+                  Maharashtra <br />
                   411014
-                  <br/>
+                  <br />
                   +91-9167822792
                 </p>
               </div>
@@ -288,29 +412,28 @@ const Home = () => {
                   required
                 ></textarea>
 
-                <button type="submit" className="button-86">SEND MESSAGE</button>
-
+                <button type="submit" className="button-86">
+                  SEND MESSAGE
+                </button>
               </div>
             </div>
           </form>
         </div>
-        
       </div>
-      <footer >
-            <div className="footer">
-
-                {/* <ul className="social">
+      <footer>
+        <div className="footer">
+          {/* <ul className="social">
                     <li>
                         <a href="https://www.linkedin.com/in/shakti-sinha-9838a714"><i className="fa fa-linkedin"></i></a>
                     </li>
                 </ul> */}
-                <a href="https://www.linkedin.com/in/shakti-sinha-9838a714">                    
-                    <img src={linkedIn} className="linkedIn" alt="LinkedIn" />
-                    {/* <span>Shakti Sinha</span> */}
-                </a>
-                <p>&copy;Spark Corporation. All rights reserved.</p>
-            </div>
-        </footer>
+          <a href="https://www.linkedin.com/in/shakti-sinha-9838a714">
+            <img src={linkedIn} className="linkedIn" alt="LinkedIn" />
+            {/* <span>Shakti Sinha</span> */}
+          </a>
+          <p>&copy;Spark Corporation. All rights reserved.</p>
+        </div>
+      </footer>
     </>
   );
 };
