@@ -225,7 +225,7 @@ const Home = () => {
           <br />
           <div className="specialized">
           <div className="ag-courses_item">
-            <a href="/" className="ag-courses-item_link">
+            <div className="ag-courses-item_link">
               <div className="ag-courses-item_bg"></div>
 
               <div className="ag-courses-item_title">
@@ -237,11 +237,11 @@ const Home = () => {
                 Start:
                 <span className="ag-courses-item_date">04.11.2022</span>
               </div> */}
-            </a>
+            </div>
           </div>
 
           <div className="ag-courses_item">
-            <a href="/" className="ag-courses-item_link">
+            <div className="ag-courses-item_link">
               <div className="ag-courses-item_bg"></div>
 
               <div className="ag-courses-item_title">
@@ -253,7 +253,7 @@ const Home = () => {
                 Start:
                 <span className="ag-courses-item_date">04.11.2022</span>
               </div> */}
-            </a>
+            </div>
           </div>
 
           </div>
@@ -266,17 +266,17 @@ const Home = () => {
 <h1>Channel Partner for following products</h1>
           <br />
           <div className="ag-courses_item">
-            <a href="/" className="ag-courses-item_link">
+            <div className="ag-courses-item_link">
               <div className="ag-courses-item_bg"></div>
 
               <div className="ag-courses-item_title">
               Roof Top Solar
               </div>
-            </a>
+            </div>
           </div>
 
           <div className="ag-courses_item">
-            <a href="/" className="ag-courses-item_link">
+            <div className="ag-courses-item_link">
               <div className="ag-courses-item_bg"></div>
 
               <div className="ag-courses-item_title">
@@ -287,67 +287,67 @@ const Home = () => {
                 Start:
                 <span className="ag-courses-item_date">04.11.2022</span>
               </div> */}
-            </a>
+            </div>
           </div>
           <div className="ag-courses_item">
-            <a href="/" className="ag-courses-item_link">
+            <div className="ag-courses-item_link">
               <div className="ag-courses-item_bg"></div>
 
               <div className="ag-courses-item_title">
               Air conditioning energy saver
               </div>
-            </a>
+            </div>
           </div>
 
           <div className="ag-courses_item">
-            <a href="/" className="ag-courses-item_link">
+            <div className="ag-courses-item_link">
               <div className="ag-courses-item_bg"></div>
 
               <div className="ag-courses-item_title">
               Energy efficient water heating systems.
               </div>
-            </a>
+            </div>
           </div>
 
           <div className="ag-courses_item">
-            <a href="/" className="ag-courses-item_link">
+            <div className="ag-courses-item_link">
               <div className="ag-courses-item_bg"></div>
 
               <div className="ag-courses-item_title">
               Air Curtains
               </div>
-            </a>
+            </div>
           </div>
 
           <div className="ag-courses_item">
-            <a href="/" className="ag-courses-item_link">
+            <div className="ag-courses-item_link">
               <div className="ag-courses-item_bg"></div>
 
               <div className="ag-courses-item_title">
               Pyrolytic Oil(Tyre Oil)
               </div>
-            </a>
+            </div>
           </div>
             <h1>Additional Services</h1>
           
             <div className="ag-courses_item">
-            <a href="/" className="ag-courses-item_link">
+            <div className="ag-courses-item_link">
               <div className="ag-courses-item_bg"></div>
 
               <div className="ag-courses-item_title">
               DESIGN AND DEVELOP USER FRIENDLY WEBSITE
               </div>
-            </a>
+            </div>
           </div>
 
           <div className="ag-courses_item">
-            <a href="/" className="ag-courses-item_link">
+            <div className="ag-courses-item_link">
               <div className="ag-courses-item_bg"></div>
 
               <div className="ag-courses-item_title">
               BUSINESS ANALYSIS
               </div>
-            </a>
+            </div>
           </div>
         </div>
       </div>
