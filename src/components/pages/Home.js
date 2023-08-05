@@ -32,27 +32,18 @@ const Home = () => {
     }
     ref3.current.checked = false;
     setChecked(false);
-    // handleChange();
   };
 
   const handleChange = () => {
     setChecked(!checked);
   };
-  //   const handleSubmit = (e) => {
-  //     e.preventDefault();
-  //     emailjs.send('service_dqudscq', 'template_toyzrhh', values, 'H2vU8VS1C1Uj7ndBq');
-  //   }
   const sendEmail = (e) => {
     e.preventDefault();
-    console.log(
-      form.current.name.value,
-      form.current.email.value,
-      form.current.message.value
-    );
+    
     emailjs
       .sendForm(
-        "service_dqudscq",
-        "template_4h6xoq9",
+        "service_69jsgia",
+        "template_lmbfb19",
         form.current,
         "H2vU8VS1C1Uj7ndBq"
       )
@@ -391,8 +382,8 @@ const Home = () => {
               <div className="form-details">
                 <input
                   type="text"
-                  name="name"
-                  id="name"
+                  name="from_name"
+                  id="from_name"
                   placeholder="Name"
                   required
                 />
@@ -412,7 +403,7 @@ const Home = () => {
                   required
                 ></textarea>
 
-                <button type="submit" className="button-86">
+                <button type="submit" className="button-17">
                   SEND MESSAGE
                 </button>
               </div>
